@@ -7,6 +7,7 @@ from django.utils.translation import gettext as _
 
 from core import models
 
+
 class UserAdmin(BaseUserAdmin):
     """Define the admin model for admin page."""
     ordering = ['id']
@@ -41,5 +42,6 @@ class UserAdmin(BaseUserAdmin):
             )
         }),
     )
+
 
 admin.site.register(models.User, UserAdmin)

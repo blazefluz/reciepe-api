@@ -13,9 +13,8 @@ class ModelTests(TestCase):
         email = "test@example.com"
         password = "testpass123"
         user = get_user_model().objects.create_user(
-            email = email,
-            password = password,
-        )
+            email=email,
+            password=password,)
 
         self.assertEqual(user.email, email)
         self.assertTrue(user.check_password(password))
@@ -27,7 +26,7 @@ class ModelTests(TestCase):
             ['Test2@Example.com', 'Test2@example.com'],
             ['TEST3@EXAMPLE.COM', 'TEST3@example.com'],
             ['test4@example.COM', 'test4@example.com']
-         ]
+        ]
 
         for email, expected in sample_emails:
             user = get_user_model().objects.create_user(email, 'sample123')
@@ -42,8 +41,7 @@ class ModelTests(TestCase):
         """Test creating a new superuser"""
         user = get_user_model().objects.create_superuser(
             'test@example.com',
-            'test123'
-        )
+            'test123')
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
